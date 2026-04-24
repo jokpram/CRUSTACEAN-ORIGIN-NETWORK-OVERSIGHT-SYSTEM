@@ -1,0 +1,143 @@
+﻿
+========================================
+  CRONOS API FULL TEST SUITE
+========================================
+
+--- 1. HEALTH ---
+  FAIL GET / - Health check => 
+<html>
+<a href='http://www.enterprisedb.com'><img src='images/edblogo.png' border=0></a></br></br>
+Server is up and running.</br>
+</html>
+
+
+
+--- 2. AUTH ---
+  FAIL [404] POST /api/auth/register - Register konsumen => 
+  FAIL [404] POST /api/auth/login - Login admin => 
+  FAIL [404] POST /api/auth/login - Login invalid (401) => 
+  FAIL [404] GET /api/auth/profile - Get profile => 
+  FAIL [405] PUT /api/auth/profile - Update profile => 
+  FAIL [404] GET /api/auth/profile - No token (401) => 
+
+--- 3. ADMIN ---
+  FAIL [404] POST /api/admin/users - Create petambak => 
+  FAIL [404] POST /api/admin/users - Create logistik => 
+  FAIL [404] POST /api/auth/login - Login petambak => 
+  FAIL [404] POST /api/auth/login - Login logistik => 
+  FAIL [404] GET /api/admin/users?page=1&limit=10 - List users => 
+  FAIL [404] GET /api/admin/users?page=1&limit=10&role=petambak - List users (petambak) => 
+  FAIL [404] GET /api/admin/dashboard - Admin dashboard => 
+  FAIL [404] GET /api/admin/users - Admin by konsumen (403) => 
+
+--- 4. SHRIMP TYPES ---
+  FAIL [404] POST /api/admin/shrimp-types - Create shrimp type => 
+  FAIL [404] POST /api/admin/shrimp-types - Create shrimp type 2 => 
+  FAIL [404] GET /api/shrimp-types - Get shrimp types (public) => 
+
+--- 5. FARMS ---
+  FAIL [404] POST /api/farms - Create farm => 
+  FAIL [404] GET /api/farms - Get my farms => 
+
+--- 6. PONDS ---
+
+--- 7. CULTIVATION ---
+  FAIL [404] GET /api/cultivations - Get my cycles => 
+
+--- 8. HARVEST & BATCH ---
+  FAIL [404] GET /api/harvests - Get harvests => 
+
+--- 9. PRODUCTS ---
+  FAIL [404] POST /api/products - Create product => 
+  FAIL [404] GET /api/products - Marketplace (public) => 
+  FAIL [404] GET /api/products?search=udang - Search products => 
+  FAIL [404] GET /api/products?sort_by=price_asc - Sort by price => 
+  FAIL [404] GET /api/products/my - My products => 
+
+--- 10. ORDERS ---
+  FAIL [404] GET /api/orders?page=1&limit=10 - Get my orders => 
+
+--- 11. PAYMENTS ---
+  FAIL [404] POST /api/payments/midtrans/webhook - Webhook (expect 400) => 
+
+--- 12. ADMIN ORDERS ---
+  FAIL [404] GET /api/admin/orders?page=1&limit=10 - Admin orders => 
+
+--- 13. SHIPMENTS ---
+  FAIL [404] GET /api/admin/shipments - Admin shipments => 
+  FAIL [404] GET /api/shipments - Logistik shipments => 
+
+--- 14. REVIEWS ---
+
+--- 15. WITHDRAWALS ---
+  FAIL [404] POST /api/withdrawals - Create withdrawal => 
+  FAIL [404] GET /api/withdrawals - My withdrawals => 
+  FAIL [404] GET /api/admin/withdrawals - Admin withdrawals => 
+
+--- 16. SALES ---
+  FAIL [404] GET /api/sales - Seller orders => 
+
+--- 17. DASHBOARDS ---
+  FAIL [404] GET /api/dashboard/petambak - Petambak dashboard => 
+  FAIL [404] GET /api/dashboard/logistik - Logistik dashboard => 
+  FAIL [404] GET /api/dashboard/konsumen - Konsumen dashboard => 
+
+--- 18. TRACEABILITY ---
+  FAIL [404] GET /api/admin/traceability/logs - Admin trace logs => 
+  FAIL [404] GET /api/admin/traceability/verify - Verify blockchain => 
+
+--- 19. CHAT ---
+  FAIL [404] GET /api/chat/rooms - Chat rooms => 
+  FAIL [404] GET /api/chat/users - Chat users => 
+
+--- 20. CANCEL ORDER ---
+
+========================================
+  RESULTS: Total=43  PASS=0  FAIL=43
+  Success Rate: 0%
+========================================
+
+  FAILED TESTS:
+    - GET / - Health check => 
+    - POST /api/auth/register - Register konsumen => [404] 
+    - POST /api/auth/login - Login admin => [404] 
+    - POST /api/auth/login - Login invalid (401) => [404] 
+    - GET /api/auth/profile - Get profile => [404] 
+    - PUT /api/auth/profile - Update profile => [405] 
+    - GET /api/auth/profile - No token (401) => [404] 
+    - POST /api/admin/users - Create petambak => [404] 
+    - POST /api/admin/users - Create logistik => [404] 
+    - POST /api/auth/login - Login petambak => [404] 
+    - POST /api/auth/login - Login logistik => [404] 
+    - GET /api/admin/users?page=1&limit=10 - List users => [404] 
+    - GET /api/admin/users?page=1&limit=10&role=petambak - List users (petambak) => [404] 
+    - GET /api/admin/dashboard - Admin dashboard => [404] 
+    - GET /api/admin/users - Admin by konsumen (403) => [404] 
+    - POST /api/admin/shrimp-types - Create shrimp type => [404] 
+    - POST /api/admin/shrimp-types - Create shrimp type 2 => [404] 
+    - GET /api/shrimp-types - Get shrimp types (public) => [404] 
+    - POST /api/farms - Create farm => [404] 
+    - GET /api/farms - Get my farms => [404] 
+    - GET /api/cultivations - Get my cycles => [404] 
+    - GET /api/harvests - Get harvests => [404] 
+    - POST /api/products - Create product => [404] 
+    - GET /api/products - Marketplace (public) => [404] 
+    - GET /api/products?search=udang - Search products => [404] 
+    - GET /api/products?sort_by=price_asc - Sort by price => [404] 
+    - GET /api/products/my - My products => [404] 
+    - GET /api/orders?page=1&limit=10 - Get my orders => [404] 
+    - POST /api/payments/midtrans/webhook - Webhook (expect 400) => [404] 
+    - GET /api/admin/orders?page=1&limit=10 - Admin orders => [404] 
+    - GET /api/admin/shipments - Admin shipments => [404] 
+    - GET /api/shipments - Logistik shipments => [404] 
+    - POST /api/withdrawals - Create withdrawal => [404] 
+    - GET /api/withdrawals - My withdrawals => [404] 
+    - GET /api/admin/withdrawals - Admin withdrawals => [404] 
+    - GET /api/sales - Seller orders => [404] 
+    - GET /api/dashboard/petambak - Petambak dashboard => [404] 
+    - GET /api/dashboard/logistik - Logistik dashboard => [404] 
+    - GET /api/dashboard/konsumen - Konsumen dashboard => [404] 
+    - GET /api/admin/traceability/logs - Admin trace logs => [404] 
+    - GET /api/admin/traceability/verify - Verify blockchain => [404] 
+    - GET /api/chat/rooms - Chat rooms => [404] 
+    - GET /api/chat/users - Chat users => [404] 

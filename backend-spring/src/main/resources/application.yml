@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: CRONOS
+  datasource:
+    url: jdbc:postgresql://localhost:5433/crony
+    username: postgres
+    password: joko1453
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          time_zone: Asia/Jakarta
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+
+server:
+  port: 8081
+
+app:
+  name: CRONOS
+  env: development
+  jwt-secret: hf93rhf9832hf983fh9e2jwq09jd39ehfasihfac39ne2qoiwfhdcnwbri231qwhroifnebeiehoqpwrojfdsnvr32efqw09dcnerwjn234tg32f3rr2gfv323fve3r42fevrcwewvwvwevwvfw
+  jwt-expiration-ms: 604800000
+  upload-dir: uploads
+
+midtrans:
+  merchant-id: YOUR_MERCHANT_ID
+  client-key: YOUR_CLIENT_KEY
+  server-key: YOUR_SERVER_KEY
+  is-production: false
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    com.cronos: DEBUG

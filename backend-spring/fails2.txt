@@ -1,0 +1,18 @@
+success message           
+  FAIL [400] PUT /api/admin/shrimp-types/d68387db-e396-47d3-9954-06ccf1a7ea76 - Update shrimp type => could not execute statement [ERROR: duplicate key value violates unique constraint "idx_shrimp_types_name"
+  FAIL [401] GET /api/cultivations - Get my cycles => 
+  FAIL [401] GET /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e - Get cycle => 
+  FAIL [401] PUT /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e - Update cycle => 
+  FAIL [401] GET /api/harvests - Get harvests => 
+  FAIL [401] GET /api/harvests/cc0652c2-15aa-47fe-b6c1-5793e94c868a - Get harvest => 
+  FAIL [401] GET /api/orders?page=1&limit=10 - Get my orders => 
+  FAIL [401] GET /api/orders/0131ecdf-464b-420b-b869-ad755d13b15f - Get order => 
+  FAIL [400] POST /api/payments/create - Create payment => failed to create snap token: Midtrans API is returning API error. HTTP status code: 401 API response: {"error_messages":["Access denied due to unauthorized transaction, please check client or server key","Visit https://docs.midtrans.com/reference/backend-integration for more details"]}
+  FAIL [401] GET /api/admin/orders?page=1&limit=10 - Admin orders => 
+  FAIL [400] POST /api/reviews - Create review => class [Ljava.lang.Object; cannot be cast to class java.lang.Number ([Ljava.lang.Object; and java.lang.Number are in module java.base of loader 'bootstrap')
+  FAIL [401] GET /api/sales - Seller orders => 
+  FAIL [401] GET /api/dashboard/konsumen - Konsumen dashboard => 
+  RESULTS: Total=79  PASS=66  FAIL=13
+  Success Rate: 83.5%
+  FAILED TESTS:
+    - POST /api/payments/create - Create payment => [400] failed to create snap token: Midtrans API is returning API error. HTTP status code: 401 API response: {"error_messages":["Access denied due to unauthorized transaction, please check client or server key","Visit https://docs.midtrans.com/reference/backend-integration for more details"]}

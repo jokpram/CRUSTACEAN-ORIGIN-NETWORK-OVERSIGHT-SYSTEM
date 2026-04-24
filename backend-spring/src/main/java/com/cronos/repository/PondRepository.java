@@ -1,0 +1,13 @@
+package com.cronos.repository;
+
+import com.cronos.entity.Pond;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
+
+@Repository
+public interface PondRepository extends JpaRepository<Pond, UUID> {
+    List<Pond> findByFarmIdOrderByCreatedAtDesc(UUID farmId);
+}

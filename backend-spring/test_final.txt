@@ -1,0 +1,177 @@
+﻿
+========================================
+  CRONOS API FULL TEST SUITE
+========================================
+
+--- 1. HEALTH ---
+  PASS GET / - Health check
+
+
+--- 2. AUTH ---
+  PASS POST /api/auth/register - Register konsumen
+  PASS POST /api/auth/login - Login admin
+  PASS POST /api/auth/login - Login invalid (401) (expected 401)
+  PASS GET /api/auth/profile - Get profile
+success message           
+------- -------           
+   True CRONOS Backend ...
+   True Profile retrieved 
+  PASS PUT /api/auth/profile - Update profile
+   True Profile updated   
+  PASS GET /api/auth/profile - No token (401) (expected 401)
+
+--- 3. ADMIN ---
+  PASS POST /api/admin/users - Create petambak
+  PASS POST /api/admin/users - Create logistik
+  PASS POST /api/auth/login - Login petambak
+  PASS POST /api/auth/login - Login logistik
+  PASS GET /api/admin/users?page=1&limit=10 - List users
+   True Users retrieved   
+  PASS GET /api/admin/users?page=1&limit=10&role=petambak - List users (petambak)
+   True Users retrieved   
+  PASS GET /api/admin/dashboard - Admin dashboard
+   True Admin dashboard   
+  PASS GET /api/admin/users - Admin by konsumen (403) (expected 403)
+
+--- 4. SHRIMP TYPES ---
+  PASS POST /api/admin/shrimp-types - Create shrimp type
+  PASS POST /api/admin/shrimp-types - Create shrimp type 2
+   True Shrimp type cre...
+  PASS GET /api/shrimp-types - Get shrimp types (public)
+   True Shrimp types re...
+  PASS PUT /api/admin/shrimp-types/3a6e7e58-b6be-4e22-be72-e8dbf81d2665 - Update shrimp type
+   True Shrimp type upd...
+
+--- 5. FARMS ---
+  PASS POST /api/farms - Create farm
+  PASS GET /api/farms - Get my farms
+   True Farms retrieved   
+  PASS GET /api/farms/bfa2d3c8-5bb9-4631-bdfe-b87c53f5d1a9 - Get farm by ID
+   True Farm retrieved    
+  PASS PUT /api/farms/bfa2d3c8-5bb9-4631-bdfe-b87c53f5d1a9 - Update farm
+   True Farm updated      
+
+--- 6. PONDS ---
+  PASS POST /api/farms/bfa2d3c8-5bb9-4631-bdfe-b87c53f5d1a9/ponds - Create pond
+  PASS GET /api/farms/bfa2d3c8-5bb9-4631-bdfe-b87c53f5d1a9/ponds - Get ponds
+   True Ponds retrieved   
+  PASS PUT /api/farms/ponds/79d6e4d5-1cbc-43f6-9324-2cd24ed27038 - Update pond
+   True Pond updated      
+
+--- 7. CULTIVATION ---
+  PASS POST /api/cultivations - Create cycle
+  FAIL [401] GET /api/cultivations - Get my cycles => 
+  FAIL [401] GET /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380 - Get cycle => 
+  PASS POST /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380/feed-logs - Add feed log
+   True Feed log added    
+  PASS GET /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380/feed-logs - Get feed logs
+   True Feed logs retri...
+  PASS POST /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380/water-quality - Add water quality
+   True Water quality l...
+  PASS GET /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380/water-quality - Get water quality
+   True Water quality l...
+  FAIL [401] PUT /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380 - Update cycle => 
+
+--- 8. HARVEST & BATCH ---
+  PASS POST /api/harvests - Create harvest
+  FAIL [401] GET /api/harvests - Get harvests => 
+  FAIL [401] GET /api/harvests/c237318d-f5db-491f-9a3c-e3b3fde9241b - Get harvest => 
+  PASS POST /api/batches - Create batch
+  PASS GET /api/batches - Get batches
+   True Batches retrieved 
+
+--- 9. PRODUCTS ---
+  PASS POST /api/products - Create product
+  PASS GET /api/products - Marketplace (public)
+   True Products retrieved
+  PASS GET /api/products?search=udang - Search products
+   True Products retrieved
+  PASS GET /api/products?sort_by=price_asc - Sort by price
+   True Products retrieved
+  PASS GET /api/products/503319d6-355f-4eb9-a38c-d916c75901a8 - Get product
+   True Product retrieved 
+  PASS GET /api/products/503319d6-355f-4eb9-a38c-d916c75901a8/reviews - Get reviews
+   True Reviews retrieved 
+  PASS GET /api/products/my - My products
+   True Products retrieved
+  PASS PUT /api/products/503319d6-355f-4eb9-a38c-d916c75901a8 - Update product
+   True Product updated   
+
+--- 10. ORDERS ---
+  FAIL [400] POST /api/orders - Create order => insufficient stock for product: Udang Premium
+  PASS GET /api/orders?page=1&limit=10 - Get my orders
+   True Orders retrieved  
+
+--- 11. PAYMENTS ---
+  PASS POST /api/payments/midtrans/webhook - Webhook (expect 400) (expected 400)
+
+--- 12. ADMIN ORDERS ---
+  PASS GET /api/admin/orders?page=1&limit=10 - Admin orders
+   True Orders retrieved  
+
+--- 13. SHIPMENTS ---
+  PASS GET /api/admin/shipments - Admin shipments
+   True Shipments retri...
+  PASS GET /api/shipments - Logistik shipments
+   True Shipments retri...
+
+--- 14. REVIEWS ---
+  FAIL [400] POST /api/reviews - Create review => Character array is missing "e" notation exponential mark.
+  PASS GET /api/products/503319d6-355f-4eb9-a38c-d916c75901a8/reviews - Reviews after add
+   True Reviews retrieved 
+
+--- 15. WITHDRAWALS ---
+  FAIL [400] POST /api/withdrawals - Create withdrawal => insufficient balance
+  PASS GET /api/withdrawals - My withdrawals
+   True Withdrawals ret...
+  PASS GET /api/admin/withdrawals - Admin withdrawals
+   True Withdrawals ret...
+
+--- 16. SALES ---
+  PASS GET /api/sales - Seller orders
+   True Sales orders re...
+
+--- 17. DASHBOARDS ---
+  PASS GET /api/dashboard/petambak - Petambak dashboard
+   True Dashboard retri...
+  PASS GET /api/dashboard/logistik - Logistik dashboard
+   True Dashboard retri...
+  PASS GET /api/dashboard/konsumen - Konsumen dashboard
+   True Dashboard retri...
+
+--- 18. TRACEABILITY ---
+  PASS GET /api/traceability/CRN-VNM-2026-000001 - Trace batch (public)
+   True Traceability da...
+  PASS GET /api/admin/traceability/logs - Admin trace logs
+   True Traceability lo...
+  PASS GET /api/admin/traceability/verify - Verify blockchain
+   True Blockchain inte...
+
+--- 19. CHAT ---
+  PASS GET /api/chat/rooms - Chat rooms
+   True Rooms retrieved   
+  PASS GET /api/chat/users - Chat users
+   True Users retrieved   
+  FAIL [401] POST /api/chat/rooms - Create chat room => 
+
+--- 20. CANCEL ORDER ---
+  FAIL [400] POST /api/orders - Create order to cancel => insufficient stock for product: Udang Premium
+
+========================================
+  RESULTS: Total=69  PASS=59  FAIL=10
+  Success Rate: 85.5%
+========================================
+
+  FAILED TESTS:
+    - GET /api/cultivations - Get my cycles => [401] 
+    - GET /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380 - Get cycle => [401] 
+    - PUT /api/cultivations/6696aed8-12b7-4fe4-9c92-216ed9847380 - Update cycle => [401] 
+    - GET /api/harvests - Get harvests => [401] 
+    - GET /api/harvests/c237318d-f5db-491f-9a3c-e3b3fde9241b - Get harvest => [401] 
+    - POST /api/orders - Create order => [400] insufficient stock for product: Udang Premium
+    - POST /api/reviews - Create review => [400] Character array is missing "e" notation exponential mark.
+    - POST /api/withdrawals - Create withdrawal => [400] insufficient balance
+    - POST /api/chat/rooms - Create chat room => [401] 
+    - POST /api/orders - Create order to cancel => [400] insufficient stock for product: Udang Premium
+
+

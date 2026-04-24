@@ -1,0 +1,52 @@
+﻿
+message                   
+-------                   
+CRONOS Backend (Spring ...
+Profile retrieved         
+Profile updated           
+Users retrieved           
+Users retrieved           
+Admin dashboard           
+Shrimp type created       
+Shrimp types retrieved    
+Shrimp type updated       
+Farms retrieved           
+Farm retrieved            
+Farm updated              
+Ponds retrieved           
+Pond updated              
+Feed log added            
+Feed logs retrieved       
+Water quality log added   
+Water quality logs retr...
+Batches retrieved         
+Products retrieved        
+Products retrieved        
+Products retrieved        
+Product retrieved         
+Reviews retrieved         
+Products retrieved        
+Product updated           
+Payment created           
+Payment retrieved         
+Shipments retrieved       
+Shipments retrieved       
+Shipment status updated   
+Shipment logs retrieved   
+Shipment status updated   
+Shipment status updated   
+Review created            
+Reviews retrieved         
+Withdrawals retrieved     
+Withdrawals retrieved     
+Dashboard retrieved       
+Dashboard retrieved       
+Traceability data retri...
+Traceability logs retri...
+Blockchain integrity ve...
+Rooms retrieved           
+Users retrieved           
+Messages retrieved        
+Order cancelled           
+
+

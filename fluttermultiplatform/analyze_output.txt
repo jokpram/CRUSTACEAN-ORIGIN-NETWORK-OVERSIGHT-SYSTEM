@@ -1,0 +1,105 @@
+﻿Analyzing fluttermultiplatform...                               
+
+   info - Use interpolation to compose strings and values - lib\config\api_config.dart:8:7 - prefer_interpolation_to_compose_strings
+warning - Unused import: 'package:flutter/material.dart' - lib\config\routes.dart:1:8 - unused_import
+warning - Unused import: 'package:provider/provider.dart' - lib\config\routes.dart:3:8 - unused_import
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:59:39 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:60:44 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:61:47 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:62:50 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:64:51 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:69:22 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:72:47 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:75:48 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:76:54 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:77:55 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:78:60 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:79:61 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:80:58 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:81:61 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:84:51 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:85:57 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:86:63 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:87:60 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:88:59 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:89:60 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:90:57 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:91:63 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:94:51 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:95:61 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:98:51 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:99:58 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:100:56 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\config\routes.dart:101:60 - unnecessary_underscores
+  error - The method 'getAll' isn't defined for the type 'OrderApi' - lib\screens\admin\orders_screen.dart:24:38 - undefined_method
+warning - Unused import: '../../config/theme.dart' - lib\screens\admin\shipments_screen.dart:4:8 - unused_import
+  error - The method 'getAll' isn't defined for the type 'ShipmentApi' - lib\screens\admin\shipments_screen.dart:29:41 - undefined_method
+  error - The method 'getAll' isn't defined for the type 'OrderApi' - lib\screens\admin\shipments_screen.dart:65:27 - undefined_method
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\admin\shipments_screen.dart:70:39 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\admin\shipments_screen.dart:74:39 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\shipments_screen.dart:83:70 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\screens\admin\shrimp_types_screen.dart:55:63 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\shrimp_types_screen.dart:68:48 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\shrimp_types_screen.dart:68:78 - use_build_context_synchronously
+  error - The method 'getAll' isn't defined for the type 'TraceabilityApi' - lib\screens\admin\traceability_logs_screen.dart:25:45 - undefined_method
+   info - Statements in an if should be enclosed in a block - lib\screens\admin\traceability_logs_screen.dart:34:20 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\admin\users_screen.dart:73:39 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\users_screen.dart:79:70 - use_build_context_synchronously
+  error - The method 'getAll' isn't defined for the type 'WithdrawalApi' - lib\screens\admin\withdrawals_screen.dart:25:43 - undefined_method
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\withdrawals_screen.dart:42:50 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\withdrawals_screen.dart:42:80 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\withdrawals_screen.dart:48:50 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\admin\withdrawals_screen.dart:48:80 - use_build_context_synchronously
+   info - Field overrides a field inherited from 'Widget' - lib\screens\admin\withdrawals_screen.dart:81:16 - overridden_fields
+   info - The member 'key' overrides an inherited member but isn't annotated with '@override' - lib\screens\admin\withdrawals_screen.dart:81:16 - annotate_overrides
+  error - '_InfoRow.key' ('String Function()') isn't a valid override of 'Widget.key' ('Key? Function()') - lib\screens\admin\withdrawals_screen.dart:81:16 - invalid_override
+   info - Unnecessary use of multiple underscores - lib\screens\chat_screen.dart:71:51 - unnecessary_underscores
+warning - Unused import: '../../widgets/shared_widgets.dart' - lib\screens\konsumen\cart_screen.dart:7:8 - unused_import
+  error - The getter 'totalPrice' isn't defined for the type 'CartProvider' - lib\screens\konsumen\cart_screen.dart:54:179 - undefined_getter
+  error - The getter 'totalPrice' isn't defined for the type 'CartProvider' - lib\screens\konsumen\cart_screen.dart:58:196 - undefined_getter
+warning - Unused import: '../../widgets/shared_widgets.dart' - lib\screens\konsumen\checkout_screen.dart:10:8 - unused_import
+  error - The method 'clear' isn't defined for the type 'CartProvider' - lib\screens\konsumen\checkout_screen.dart:32:12 - undefined_method
+   info - Don't use 'BuildContext's across async gaps - lib\screens\konsumen\checkout_screen.dart:36:9 - use_build_context_synchronously
+  error - The getter 'totalPrice' isn't defined for the type 'CartProvider' - lib\screens\konsumen\checkout_screen.dart:62:31 - undefined_getter
+  error - The getter 'totalPrice' isn't defined for the type 'CartProvider' - lib\screens\konsumen\checkout_screen.dart:76:179 - undefined_getter
+  error - The getter 'totalPrice' isn't defined for the type 'CartProvider' - lib\screens\konsumen\checkout_screen.dart:80:196 - undefined_getter
+  error - The getter 'totalPrice' isn't defined for the type 'CartProvider' - lib\screens\konsumen\checkout_screen.dart:84:133 - undefined_getter
+  error - The getter 'items' isn't defined for the type 'Order' - lib\screens\konsumen\orders_screen.dart:45:15 - undefined_getter
+  error - The getter 'items' isn't defined for the type 'Order' - lib\screens\konsumen\orders_screen.dart:46:16 - undefined_getter
+  error - The getter 'paymentUrl' isn't defined for the type 'Order' - lib\screens\konsumen\orders_screen.dart:52:44 - undefined_getter
+  error - The getter 'paymentUrl' isn't defined for the type 'Order' - lib\screens\konsumen\orders_screen.dart:53:54 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\screens\konsumen\orders_screen.dart:71:58 - use_build_context_synchronously
+  error - Undefined name 'ReviewApi' - lib\screens\konsumen\orders_screen.dart:84:21 - undefined_identifier
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\konsumen\orders_screen.dart:85:70 - use_build_context_synchronously
+  error - The method 'getMine' isn't defined for the type 'ShipmentApi' - lib\screens\logistik\shipments_screen.dart:25:41 - undefined_method
+  error - The argument type 'String' can't be assigned to the parameter type 'Map<String, dynamic>'.  - lib\screens\logistik\shipments_screen.dart:57:46 - argument_type_not_assignable
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\marketplace_screen.dart:91:27 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\marketplace_screen.dart:103:27 - deprecated_member_use
+  error - The getter 'shrimpType' isn't defined for the type 'Batch' - lib\screens\petambak\batches_screen.dart:41:40 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\farms_screen.dart:69:48 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\farms_screen.dart:69:78 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\farms_screen.dart:70:64 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\products_screen.dart:71:48 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\products_screen.dart:71:78 - use_build_context_synchronously
+  error - The method 'getMySales' isn't defined for the type 'OrderApi' - lib\screens\petambak\sales_screen.dart:24:38 - undefined_method
+  error - The method 'getMine' isn't defined for the type 'WithdrawalApi' - lib\screens\petambak\withdrawals_screen.dart:25:43 - undefined_method
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\withdrawals_screen.dart:64:48 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\petambak\withdrawals_screen.dart:64:78 - use_build_context_synchronously
+
+flutter : 85 issues 
+found. (ran in 24.2s)
+At line:1 char:1
++ flutter analyze 2>&1 | 
+Out-File -FilePath 
+analyze_output.txt 
+-Encodin ...
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (8  
+  5 issues found. (ran    
+ in 24.2s):String) [],    
+ RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 

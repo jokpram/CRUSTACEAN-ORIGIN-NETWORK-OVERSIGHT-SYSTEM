@@ -1,0 +1,25 @@
+﻿
+========================================
+  CRONOS API FULL TEST SUITE
+========================================
+
+--- 1. HEALTH ---
+  PASS GET / - Health check
+
+
+--- 2. AUTH ---
+  PASS POST /api/auth/register - Register konsumen
+  PASS POST /api/auth/login - Login admin
+  PASS POST /api/auth/login - Login invalid (401) (expected 401)
+  PASS GET /api/auth/profile - Get profile
+success message       
+------- -------       
+   True CRONOS Back...
+   True Profile ret...
+  PASS PUT /api/auth/profile - Update profile
+   True Profile upd...
+  PASS GET /api/auth/profile - No token (401) (expected 401)
+
+--- 3. ADMIN ---
+  PASS POST /api/admin/users - Create petambak
+  PASS POST /api/admin/users - Create logistik

@@ -1,0 +1,38 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Golang
+/backend/bin
+/backend/tmp
+/backend/vendor
+
+# Node.js / Frontend
+/frontend/node_modules
+/frontend/dist
+/frontend/.svelte-kit
+/frontend/build
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Java / Spring Boot
+backend-spring/target/
+backend-spring/.mvn/
+backend-spring/*.log
+
+# Flutter
+fluttermultiplatform/.dart_tool/
+fluttermultiplatform/build/
+fluttermultiplatform/.flutter-plugins
+fluttermultiplatform/.flutter-plugins-dependencies
+fluttermultiplatform/*.log
+
+# My Script
+strip_comments.py
+log.txt
+find_large_files.ps1

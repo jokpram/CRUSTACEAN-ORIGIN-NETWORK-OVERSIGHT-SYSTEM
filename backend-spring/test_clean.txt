@@ -1,0 +1,194 @@
+﻿
+========================================
+  CRONOS API FULL TEST SUITE
+========================================
+
+--- 1. HEALTH ---
+  PASS GET / - Health check
+
+
+--- 2. AUTH ---
+  PASS POST /api/auth/register - Register konsumen
+  PASS POST /api/auth/login - Login admin
+  PASS POST /api/auth/login - Login invalid (401) (expected 401)
+  PASS GET /api/auth/profile - Get profile
+success message           
+------- -------           
+   True CRONOS Backend ...
+   True Profile retrieved 
+  PASS PUT /api/auth/profile - Update profile
+   True Profile updated   
+  PASS GET /api/auth/profile - No token (401) (expected 401)
+
+--- 3. ADMIN ---
+  PASS POST /api/admin/users - Create petambak
+  PASS POST /api/admin/users - Create logistik
+  PASS POST /api/auth/login - Login petambak
+  PASS POST /api/auth/login - Login logistik
+  PASS GET /api/admin/users?page=1&limit=10 - List users
+   True Users retrieved   
+  PASS GET /api/admin/users?page=1&limit=10&role=petambak - List users (petambak)
+   True Users retrieved   
+  PASS GET /api/admin/dashboard - Admin dashboard
+   True Admin dashboard   
+  PASS GET /api/admin/users - Admin by konsumen (403) (expected 403)
+
+--- 4. SHRIMP TYPES ---
+  PASS POST /api/admin/shrimp-types - Create shrimp type
+  PASS POST /api/admin/shrimp-types - Create shrimp type 2
+   True Shrimp type cre...
+  PASS GET /api/shrimp-types - Get shrimp types (public)
+   True Shrimp types re...
+  FAIL [400] PUT /api/admin/shrimp-types/d68387db-e396-47d3-9954-06ccf1a7ea76 - Update shrimp type => could not execute statement [ERROR: duplicate key value violates unique constraint "idx_shrimp_types_name"
+  Detail: Key (name)=(Vaname Updated) already exists.] [update shrimp_types set deleted_at=?,description=?,image=?,name=?,updated_at=? where id=?]; SQL [update shrimp_types set deleted_at=?,description=?,image=?,name=?,updated_at=? where id=?]; constraint [idx_shrimp_types_name]
+
+--- 5. FARMS ---
+  PASS POST /api/farms - Create farm
+  PASS GET /api/farms - Get my farms
+   True Farms retrieved   
+  PASS GET /api/farms/b0d54658-23c5-41c2-93c8-a1d720ee782f - Get farm by ID
+   True Farm retrieved    
+  PASS PUT /api/farms/b0d54658-23c5-41c2-93c8-a1d720ee782f - Update farm
+   True Farm updated      
+
+--- 6. PONDS ---
+  PASS POST /api/farms/b0d54658-23c5-41c2-93c8-a1d720ee782f/ponds - Create pond
+  PASS GET /api/farms/b0d54658-23c5-41c2-93c8-a1d720ee782f/ponds - Get ponds
+   True Ponds retrieved   
+  PASS PUT /api/farms/ponds/72f81a66-fb5b-45c6-b3a5-8ab5e23098ce - Update pond
+   True Pond updated      
+
+--- 7. CULTIVATION ---
+  PASS POST /api/cultivations - Create cycle
+  FAIL [401] GET /api/cultivations - Get my cycles => 
+  FAIL [401] GET /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e - Get cycle => 
+  PASS POST /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e/feed-logs - Add feed log
+   True Feed log added    
+  PASS GET /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e/feed-logs - Get feed logs
+   True Feed logs retri...
+  PASS POST /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e/water-quality - Add water quality
+   True Water quality l...
+  PASS GET /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e/water-quality - Get water quality
+   True Water quality l...
+  FAIL [401] PUT /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e - Update cycle => 
+
+--- 8. HARVEST & BATCH ---
+  PASS POST /api/harvests - Create harvest
+  FAIL [401] GET /api/harvests - Get harvests => 
+  FAIL [401] GET /api/harvests/cc0652c2-15aa-47fe-b6c1-5793e94c868a - Get harvest => 
+  PASS POST /api/batches - Create batch
+  PASS GET /api/batches - Get batches
+   True Batches retrieved 
+
+--- 9. PRODUCTS ---
+  PASS POST /api/products - Create product
+  PASS GET /api/products - Marketplace (public)
+   True Products retrieved
+  PASS GET /api/products?search=udang - Search products
+   True Products retrieved
+  PASS GET /api/products?sort_by=price_asc - Sort by price
+   True Products retrieved
+  PASS GET /api/products/4c797f26-052d-4191-a80a-937a5c03d940 - Get product
+   True Product retrieved 
+  PASS GET /api/products/4c797f26-052d-4191-a80a-937a5c03d940/reviews - Get reviews
+   True Reviews retrieved 
+  PASS GET /api/products/my - My products
+   True Products retrieved
+  PASS PUT /api/products/4c797f26-052d-4191-a80a-937a5c03d940 - Update product
+   True Product updated   
+
+--- 10. ORDERS ---
+  PASS POST /api/orders - Create order
+  FAIL [401] GET /api/orders?page=1&limit=10 - Get my orders => 
+  FAIL [401] GET /api/orders/0131ecdf-464b-420b-b869-ad755d13b15f - Get order => 
+
+--- 11. PAYMENTS ---
+  FAIL [400] POST /api/payments/create - Create payment => failed to create snap token: Midtrans API is returning API error. HTTP status code: 401 API response: {"error_messages":["Access denied due to unauthorized transaction, please check client or server key","Visit https://docs.midtrans.com/reference/backend-integration for more details"]}
+  PASS GET /api/payments/0131ecdf-464b-420b-b869-ad755d13b15f - Get payment
+   True Payment retrieved 
+  PASS POST /api/payments/midtrans/webhook - Webhook (expect 400) (expected 400)
+
+--- 12. ADMIN ORDERS ---
+  FAIL [401] GET /api/admin/orders?page=1&limit=10 - Admin orders => 
+
+--- 13. SHIPMENTS ---
+  PASS POST /api/admin/shipments - Create shipment
+  PASS GET /api/admin/shipments - Admin shipments
+   True Shipments retri...
+  PASS GET /api/shipments - Logistik shipments
+   True Shipments retri...
+  PASS PUT /api/shipments/c92337b5-b4a8-4819-bafd-9e3a2c46f031/status - Shipment pickup
+   True Shipment status...
+  PASS GET /api/shipments/c92337b5-b4a8-4819-bafd-9e3a2c46f031/logs - Shipment logs
+   True Shipment logs r...
+  PASS PUT /api/shipments/c92337b5-b4a8-4819-bafd-9e3a2c46f031/status - Shipment transit
+   True Shipment status...
+  PASS PUT /api/shipments/c92337b5-b4a8-4819-bafd-9e3a2c46f031/status - Shipment delivered
+   True Shipment status...
+
+--- 14. REVIEWS ---
+  FAIL [400] POST /api/reviews - Create review => class [Ljava.lang.Object; cannot be cast to class java.lang.Number ([Ljava.lang.Object; and java.lang.Number are in module java.base of loader 'bootstrap')
+  PASS GET /api/products/4c797f26-052d-4191-a80a-937a5c03d940/reviews - Reviews after add
+   True Reviews retrieved 
+
+--- 15. WITHDRAWALS ---
+  PASS POST /api/withdrawals - Create withdrawal (expect 400) (expected 400)
+  PASS GET /api/withdrawals - My withdrawals
+   True Withdrawals ret...
+  PASS GET /api/admin/withdrawals - Admin withdrawals
+   True Withdrawals ret...
+
+--- 16. SALES ---
+  FAIL [401] GET /api/sales - Seller orders => 
+
+--- 17. DASHBOARDS ---
+  PASS GET /api/dashboard/petambak - Petambak dashboard
+   True Dashboard retri...
+  PASS GET /api/dashboard/logistik - Logistik dashboard
+   True Dashboard retri...
+  FAIL [401] GET /api/dashboard/konsumen - Konsumen dashboard => 
+
+--- 18. TRACEABILITY ---
+  PASS GET /api/traceability/CRN-VNM-2026-000003 - Trace batch (public)
+   True Traceability da...
+  PASS GET /api/admin/traceability/logs - Admin trace logs
+   True Traceability lo...
+  PASS GET /api/admin/traceability/verify - Verify blockchain
+   True Blockchain inte...
+
+--- 19. CHAT ---
+  PASS GET /api/chat/rooms - Chat rooms
+   True Rooms retrieved   
+  PASS GET /api/chat/users - Chat users
+   True Users retrieved   
+  PASS POST /api/chat/rooms - Create chat room
+  PASS GET /api/chat/rooms/ba15ff2b-4548-4eab-a19f-db564a4034fd/messages - Chat messages
+   True Messages retrieved
+
+--- 20. CANCEL ORDER ---
+  PASS POST /api/orders - Create order to cancel
+  PASS PUT /api/orders/36d2a327-bdde-421a-8f17-f2c89b770a30/cancel - Cancel order
+   True Order cancelled   
+
+========================================
+  RESULTS: Total=79  PASS=66  FAIL=13
+  Success Rate: 83.5%
+========================================
+
+  FAILED TESTS:
+    - PUT /api/admin/shrimp-types/d68387db-e396-47d3-9954-06ccf1a7ea76 - Update shrimp type => [400] could not execute statement [ERROR: duplicate key value violates unique constraint "idx_shrimp_types_name"
+  Detail: Key (name)=(Vaname Updated) already exists.] [update shrimp_types set deleted_at=?,description=?,image=?,name=?,updated_at=? where id=?]; SQL [update shrimp_types set deleted_at=?,description=?,image=?,name=?,updated_at=? where id=?]; constraint [idx_shrimp_types_name]
+    - GET /api/cultivations - Get my cycles => [401] 
+    - GET /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e - Get cycle => [401] 
+    - PUT /api/cultivations/05a3ea7f-c137-49d7-a4bb-13c2d406df4e - Update cycle => [401] 
+    - GET /api/harvests - Get harvests => [401] 
+    - GET /api/harvests/cc0652c2-15aa-47fe-b6c1-5793e94c868a - Get harvest => [401] 
+    - GET /api/orders?page=1&limit=10 - Get my orders => [401] 
+    - GET /api/orders/0131ecdf-464b-420b-b869-ad755d13b15f - Get order => [401] 
+    - POST /api/payments/create - Create payment => [400] failed to create snap token: Midtrans API is returning API error. HTTP status code: 401 API response: {"error_messages":["Access denied due to unauthorized transaction, please check client or server key","Visit https://docs.midtrans.com/reference/backend-integration for more details"]}
+    - GET /api/admin/orders?page=1&limit=10 - Admin orders => [401] 
+    - POST /api/reviews - Create review => [400] class [Ljava.lang.Object; cannot be cast to class java.lang.Number ([Ljava.lang.Object; and java.lang.Number are in module java.base of loader 'bootstrap')
+    - GET /api/sales - Seller orders => [401] 
+    - GET /api/dashboard/konsumen - Konsumen dashboard => [401] 
+
+
